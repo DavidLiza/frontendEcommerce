@@ -1,0 +1,9 @@
+{
+  "name": "pages-home-ui-home-banner",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/pages/home/ui-home-banner/src",
+  "projectType": "library",
+  "tags": [],
+  "// targets": "to see all targets run: nx show project pages-home-ui-home-banner --web",
+  "targets": {}
+}
