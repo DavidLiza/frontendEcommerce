@@ -8,6 +8,7 @@ import { red } from '@mui/material/colors';
 import { createTheme } from '@mui/material/styles';
 import { Home } from '@link-tic/pages/home/home';
 import { User } from '@link-tic/pages/user/user'
+import { Login } from '@link-tic/pages/login/login'
 
 const COMMON_THEME = createTheme({
   typography: {
@@ -55,6 +56,8 @@ export function App() {
         <Routes>
           <Route path="/" index element={<Home />} />
           <Route path="/user" element={<User />} />
+          <Route path="/login" element={<Login />} />
+
         </Routes>
 
     </ThemeProvider>

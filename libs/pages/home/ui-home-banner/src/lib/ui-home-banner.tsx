@@ -9,7 +9,7 @@ const HomeBanner = styled(Container)(({ theme }) => ({
   justifyContent: 'center',
   minHeight: '400px',
   backgroundColor: '#f5f5f5',
-  backgroundImage: 'url(https://via.placeholder.com/1500)',
+  backgroundImage: 'url(https://img.freepik.com/vector-premium/fondo-naranja-degradado-abstracto-diseno-forma-cuadrada-aplicable-banner-sitio-web-poster_650401-96.jpg)',
   backgroundSize: 'cover',
   backgroundPosition: 'center',
   position: 'relative',
@@ -21,13 +21,13 @@ export function UiHomeBanner() {
     <HomeBanner>
       <Container maxWidth="md" sx={{ textAlign: 'center', zIndex: 2 }}>
                 <Typography variant="h3" component="h1" gutterBottom>
-                    The gift of a man is his goodwill. Take care of gift
+                    Dream it , we build it
                 </Typography>
                 <Typography variant="h6" component="p" gutterBottom>
-                    GIFT SHOP
+                    DavidLizarazoDev
                 </Typography>
                 <Button variant="contained" color="primary" size="large" href='/user'>
-                    Shop Now
+                    SignIn Now
                 </Button>
             </Container>
             <Box

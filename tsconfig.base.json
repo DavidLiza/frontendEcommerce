@@ -15,6 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@link-tic/pages/home/catalog": ["libs/pages/home/catalog/src/index.ts"],
       "@link-tic/pages/home/home": ["libs/pages/home/home/src/index.ts"],
       "@link-tic/pages/home/ui-home": ["libs/pages/home/ui-home/src/index.ts"],
       "@link-tic/pages/home/ui-home-banner": [
