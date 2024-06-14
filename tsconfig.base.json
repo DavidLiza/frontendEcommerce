@@ -15,8 +15,15 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@link-tic/pages/home/catalog": ["libs/pages/home/catalog/src/index.ts"],
       "@link-tic/pages/home/home": ["libs/pages/home/home/src/index.ts"],
       "@link-tic/pages/home/ui-home": ["libs/pages/home/ui-home/src/index.ts"],
+      "@link-tic/pages/home/ui-home-banner": [
+        "libs/pages/home/ui-home-banner/src/index.ts"
+      ],
+      "@link-tic/pages/home/ui-home-header": [
+        "libs/pages/home/ui-home-header/src/index.ts"
+      ],
       "@link-tic/pages/login/login": ["libs/pages/login/login/src/index.ts"],
       "@link-tic/pages/login/ui-login": [
         "libs/pages/login/ui-login/src/index.ts"
