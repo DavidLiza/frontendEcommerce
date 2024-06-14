@@ -1,0 +1,9 @@
+{
+  "name": "pages-login-login",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/pages/login/login/src",
+  "projectType": "library",
+  "tags": [],
+  "// targets": "to see all targets run: nx show project pages-login-login --web",
+  "targets": {}
+}

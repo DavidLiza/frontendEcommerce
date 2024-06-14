@@ -1,0 +1,9 @@
+{
+  "name": "services-requests-user",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/services/requests/user/src",
+  "projectType": "library",
+  "tags": [],
+  "// targets": "to see all targets run: nx show project services-requests-user --web",
+  "targets": {}
+}

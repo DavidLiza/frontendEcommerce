@@ -1,0 +1,36 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "esnext",
+    "lib": ["es2020", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@link-tic/pages/home/home": ["libs/pages/home/home/src/index.ts"],
+      "@link-tic/pages/home/ui-home": ["libs/pages/home/ui-home/src/index.ts"],
+      "@link-tic/pages/login/login": ["libs/pages/login/login/src/index.ts"],
+      "@link-tic/pages/login/ui-login": [
+        "libs/pages/login/ui-login/src/index.ts"
+      ],
+      "@link-tic/pages/user/ui-user": ["libs/pages/user/ui-user/src/index.ts"],
+      "@link-tic/pages/user/user": ["libs/pages/user/user/src/index.ts"],
+      "@link-tic/services/requests/home": [
+        "libs/services/requests/home/src/index.ts"
+      ],
+      "@link-tic/services/requests/user": [
+        "libs/services/requests/user/src/index.ts"
+      ],
+      "@link-tic/types": ["libs/types/src/index.ts"]
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
+}
