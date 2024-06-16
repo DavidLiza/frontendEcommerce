@@ -1,0 +1,9 @@
+{
+  "name": "pages-home-ui-catalog",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/pages/home/ui-catalog/src",
+  "projectType": "library",
+  "tags": [],
+  "// targets": "to see all targets run: nx show project pages-home-ui-catalog --web",
+  "targets": {}
+}

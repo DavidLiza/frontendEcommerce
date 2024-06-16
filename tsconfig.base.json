@@ -17,6 +17,9 @@
     "paths": {
       "@link-tic/pages/home/catalog": ["libs/pages/home/catalog/src/index.ts"],
       "@link-tic/pages/home/home": ["libs/pages/home/home/src/index.ts"],
+      "@link-tic/pages/home/ui-catalog": [
+        "libs/pages/home/ui-catalog/src/index.ts"
+      ],
       "@link-tic/pages/home/ui-home": ["libs/pages/home/ui-home/src/index.ts"],
       "@link-tic/pages/home/ui-home-banner": [
         "libs/pages/home/ui-home-banner/src/index.ts"
@@ -36,6 +39,10 @@
       "@link-tic/services/requests/user": [
         "libs/services/requests/user/src/index.ts"
       ],
+      "@link-tic/shared/ui/search-field": [
+        "libs/shared/ui/search-field/src/index.ts"
+      ],
+      "@link-tic/shared/ui/ui-menu": ["libs/shared/ui/ui-menu/src/index.ts"],
       "@link-tic/types": ["libs/types/src/index.ts"]
     }
   },

@@ -26,8 +26,8 @@ export function UiHomeBanner() {
                 <Typography variant="h6" component="p" gutterBottom>
                     DavidLizarazoDev
                 </Typography>
-                <Button variant="contained" color="primary" size="large" href='/user'>
-                    SignIn Now
+                <Button variant="contained" color="primary" size="large" href='/login'>
+                    SIGN IN NOW
                 </Button>
             </Container>
             <Box
