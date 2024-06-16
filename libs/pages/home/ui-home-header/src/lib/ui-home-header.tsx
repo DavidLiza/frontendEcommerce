@@ -28,7 +28,7 @@ export function UiHomeHeader() {
       <Container maxWidth="xl" sx={{ m: 2 }}>
         <Toolbar disableGutters sx={{ m: 2 }}>
           <Link to="/">
-            <HeaderLogo src={'./assets/images/logo1.png'} />
+            <HeaderLogo src={'./assets/images/myEcommerceLogo.png'} />
           </Link>
           <SearchField />
           <Box sx={{ flexGrow: 1 }} />

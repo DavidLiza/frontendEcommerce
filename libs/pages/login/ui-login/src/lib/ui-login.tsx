@@ -1,4 +1,4 @@
-import { Container, FormControl ,styled , Box, TextField, Button } from '@mui/material';
+import { Container, FormControl ,styled , Box, TextField, Button, Alert } from '@mui/material';
 import { LoginRequestData } from '@link-tic/types';
 import { useEffect , useState } from 'react';
 
@@ -32,13 +32,18 @@ const TextFieldStyled = styled(TextField)(({ theme }) => ({
   borderRadius: '4px',
 }));
 
+const StyledButton = styled(Button)(({ theme }) => ({
+  marginTop: theme.spacing(2),
+  color: 'white',
+}));
+
+
 
 interface UiLoginProps {
   // errorMessage : string | undefined ,
   // loginFailed : boolean ,
   onSubmit : (data: LoginRequestData) => void
 }
-
 
 export function UiLogin({
   onSubmit,
@@ -53,10 +58,12 @@ export function UiLogin({
     <LoginContainer>
       <LoginForm onSubmit={(e) => { e.preventDefault(); onSubmit({ email, password }); }} >
         <h2>Login</h2>
-        <TextFieldStyled sx={{ placeHolder: 'Email' }} onChange={(e) => setEmail(e.target.value)}/>
-        <TextFieldStyled sx={{ placeHolder: 'Password' }} onChange={(e) => setPassword(e.target.value)}/>
-
-        <Button type="submit">Login</Button>
+        <TextFieldStyled required placeholder='Email' onChange={(e) => setEmail(e.target.value)}/>
+        <TextFieldStyled required placeholder='Password' onChange={(e) => setPassword(e.target.value)}/>
+        
+        <StyledButton type="submit" fullWidth variant="contained">
+          Login
+        </StyledButton>
       </LoginForm>
     </LoginContainer>
   );

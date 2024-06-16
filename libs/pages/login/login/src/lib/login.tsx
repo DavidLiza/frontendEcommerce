@@ -1,8 +1,6 @@
-import { Container, styled , Box } from '@mui/material';
-// import styled from 'styled-components';
+import { styled , Box, Alert } from '@mui/material';
 import { UiHomeHeader } from '@link-tic/pages/home/ui-home-header'
 import { UiLogin } from '@link-tic/pages/login/ui-login'
-import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { useEffect , useState } from 'react';
 import { LoginRequestData } from '@link-tic/types';
@@ -11,6 +9,11 @@ import  axios from 'axios' ;
 const StyledLogin = styled(Box)(({ theme }) => ({
   marginTop: 80,
 }));
+
+const StyledErrorMessage = styled(Alert)({
+  marginBottom: 15,
+});
+
 
 
 export function Login() {
@@ -35,8 +38,25 @@ export function Login() {
       <UiLogin 
         onSubmit={submit}
       />
+      {error && <StyledErrorMessage severity="error">{error}</StyledErrorMessage>}
     </StyledLogin>
   );
 }
 
 export default Login;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
