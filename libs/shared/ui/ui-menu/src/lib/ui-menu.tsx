@@ -35,34 +35,78 @@ export function UiMenu( {
   // const { userSession, dataUser } = useSelector(getUserState);
   const [open, setOpen] = useState<boolean>(false);
   const [logged, logoutUser] = useState<string>();
+  const letterAvatar = "TT";
+  
+  const [openMenu, setOpenMenu] = useState<boolean>(false);
+  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+
+  const handleClick = (event: React.MouseEvent<HTMLElement>) => {
+    setAnchorEl(event.currentTarget);
+    setOpenMenu(!openMenu);
+  };
 
   return (
-    <StyledUiMenu>
-      <MenuIcon />
-      <MenuList>
-        {userSessionId
-          ? [
-              <MenuItem>
-                <Typography onClick={() => setOpen(true)}>
-                  My Information
-                </Typography>
-              </MenuItem>,
-              <MenuItem>
-                <Typography onClick={() => logoutUser(userSessionId)}>
-                  LogOut
-                </Typography>
-              </MenuItem>
-            ]
-          : [
-              <MenuItem>
-                <Link to={'/login'}>Login</Link>
-              </MenuItem>,
-              <MenuItem disabled>
-                <Link to={'/register'}>Register</Link>
-              </MenuItem>,
-            ]}
-      </MenuList>
-    </StyledUiMenu>
+    <>
+    
+    <Box sx={{ minWidth: 200 }}>
+
+      <StyledUiMenu 
+        onClick={handleClick}>
+        <MenuIcon />
+        <Avatar
+            color={letterAvatar && 'primary'}
+            sx={{
+              width: 32,
+              height: 32,
+              background: (theme) => letterAvatar && theme.palette.primary.main,
+            }}
+          >
+          {letterAvatar && letterAvatar}
+        </Avatar>
+      </StyledUiMenu>
+
+
+      <Popover
+        elevation={2}
+        open={openMenu}
+        anchorEl={anchorEl}
+        onClose={() => setOpenMenu(!openMenu)}
+        anchorOrigin={{
+          vertical: 'bottom',
+          horizontal: 'right',
+        }}
+        transformOrigin={{
+          vertical: 'top',
+          horizontal: 'right',
+        }}
+      >
+        <MenuList>
+          {userSessionId
+            ? [
+                <MenuItem>
+                  <Typography onClick={() => setOpen(true)}>
+                    My Information
+                  </Typography>
+                </MenuItem>,
+                <MenuItem>
+                  <Typography onClick={() => logoutUser(userSessionId)}>
+                    LogOut
+                  </Typography>
+                </MenuItem>
+              ]
+            : [
+                <MenuItem>
+                  <Link to={'/login'}>Login</Link>
+                </MenuItem>,
+                <MenuItem disabled>
+                  <Link to={'/register'}>Register</Link>
+                </MenuItem>,
+              ]}
+        </MenuList>
+      </Popover>
+
+      </Box>
+    </>
   );
 }
 
