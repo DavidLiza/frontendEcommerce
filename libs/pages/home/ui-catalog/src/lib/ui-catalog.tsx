@@ -67,32 +67,20 @@ export function UiCatalog({ userId } : any) {
     const fetchProducts = async () => {
       try {
         // const response = await getHomeRecommender(userId);
-        const response = await axios.post(HOMEAPI.homerecommender, 
-          {}, {
-            headers: {
-              'Content-Type': 'application/json'
-            }
-          });
-        console.log ("  FETCHING  SERVICE   ")
-        // const response = {
-        //   data: [
-        //     {
-        //       id: "123456" ,
-        //       imageUrl : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPz9RlMyKdIlFhN11RXDnjl1Wj_bv0mRu6rw&s" ,
-        //       description: "This is the description Of Product A",
-        //       name : "Producto A"
-        //     },
-        //     {
-        //       id: "789012" ,
-        //       imageUrl : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRr8KaHxKE41sR2UKx9opvPepFhDFRdVL39TA&s" ,
-        //       description: "This is the description Of Product B",
-        //       name : "Producto B"
-        //     },
-        //   ]
-        // }
-
-        setProducts(response.data);
-        setLoading(false);
+        const response = await axios.post(HOMEAPI.homerecommender, { headers: {
+          'Content-Type': 'application/json'
+        }});
+        if (response?.data){
+          if (response?.data?.error) {
+            setError(response?.data?.error);
+          }
+          if (response?.data?.code !== "LKT001") {
+            setError('Failed to fetch products');
+          } else {
+            setProducts(response?.data?.result);
+            setLoading(false);
+          }
+        }
       } catch (err) {
         setError('Failed to fetch products');
         setLoading(false);
