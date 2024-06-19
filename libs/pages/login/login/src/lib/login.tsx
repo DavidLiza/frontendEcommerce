@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { useEffect , useState } from 'react';
 import { LoginRequestData } from '@link-tic/types';
 import  axios from 'axios' ;
+import { USERAPI } from '@link-tic/types'
 
 const StyledLogin = styled(Box)(({ theme }) => ({
   marginTop: 80,
@@ -15,7 +16,6 @@ const StyledErrorMessage = styled(Alert)({
 });
 
 
-
 export function Login() {
   
   const navigate = useNavigate();
@@ -23,8 +23,14 @@ export function Login() {
 
   const submit = async (data: LoginRequestData) => {
     try {
-      const response = await axios.post('localhost:8896/login', data);
-      console.log('Login successful:', response.data);
+      const response = await axios.post( USERAPI.login , data);
+      console.log(response)
+      if (response?.data?.code == "LTT001") {
+        localStorage.setItem('userId', response.data.result.userId );
+        navigate('/');
+      } else {
+        setError(response?.data?.error);
+      }
     } catch (err) {
       // Handle error
       setError('Invalid email or password');
@@ -36,6 +42,7 @@ export function Login() {
     <StyledLogin>
       <UiHomeHeader/>
       <UiLogin 
+        loginFailed={!!error}
         onSubmit={submit}
       />
       {error && <StyledErrorMessage severity="error">{error}</StyledErrorMessage>}

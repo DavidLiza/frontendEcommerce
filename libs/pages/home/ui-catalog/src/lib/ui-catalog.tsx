@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import { getHomeRecommender } from '@link-tic/services/requests/home';
 import {
   Button,
   Typography,
@@ -13,6 +14,7 @@ import {
   styled,
   CircularProgress ,
 } from '@mui/material';
+import { HOMEAPI } from '@link-tic/types'
 
 export const StyledCatalogContainer = styled(Box)(({ theme }) => ({
   marginTop: 80,
@@ -64,28 +66,21 @@ export function UiCatalog({ userId } : any) {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        // const response = await axios.post('localhost:8896/products', {
-        // });
-        console.log ("  FETCHING  SERVICE   ")
-        const response = {
-          data: [
-            {
-              id: "123456" ,
-              imageUrl : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPz9RlMyKdIlFhN11RXDnjl1Wj_bv0mRu6rw&s" ,
-              description: "This is the description Of Product A",
-              name : "Producto A"
-            },
-            {
-              id: "789012" ,
-              imageUrl : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRr8KaHxKE41sR2UKx9opvPepFhDFRdVL39TA&s" ,
-              description: "This is the description Of Product B",
-              name : "Producto B"
-            },
-          ]
+        // const response = await getHomeRecommender(userId);
+        const response = await axios.post(HOMEAPI.homerecommender, { headers: {
+          'Content-Type': 'application/json'
+        }});
+        if (response?.data){
+          if (response?.data?.error) {
+            setError(response?.data?.error);
+          }
+          if (response?.data?.code !== "LKT001") {
+            setError('Failed to fetch products');
+          } else {
+            setProducts(response?.data?.result);
+            setLoading(false);
+          }
         }
-
-        setProducts(response.data);
-        setLoading(false);
       } catch (err) {
         setError('Failed to fetch products');
         setLoading(false);

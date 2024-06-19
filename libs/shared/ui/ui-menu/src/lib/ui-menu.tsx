@@ -1,7 +1,6 @@
 import { MenuItem, Typography, MenuList } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import { Link, useNavigate } from 'react-router-dom';
-import { useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import {
   Button,
